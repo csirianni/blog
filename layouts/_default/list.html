@@ -1,0 +1,16 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+{{ .Content }}
+{{ if .RegularPages }}
+<ul class="post-list">
+  {{ range .RegularPages.ByDate.Reverse }}
+  <li>
+    <div><a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ if .Draft }} <span class="draft">Draft</span>{{ end }}</div>
+    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+  </li>
+  {{ end }}
+</ul>
+{{ else }}
+<p class="muted">No posts yet. Stay tuned.</p>
+{{ end }}
+{{ end }}

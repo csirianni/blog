@@ -1,0 +1,5 @@
+<div class="social-links" aria-label="Contact links">
+  <a href="{{ site.Params.github }}" aria-label="GitHub">{{ readFile "assets/icons/github.svg" | replaceRE "<svg " "<svg aria-hidden=\"true\" focusable=\"false\" " | safeHTML }}</a>
+  <a href="{{ site.Params.linkedin }}" aria-label="LinkedIn">{{ readFile "assets/icons/linkedin.svg" | replaceRE "<svg " "<svg aria-hidden=\"true\" focusable=\"false\" " | safeHTML }}</a>
+  <a href="mailto:{{ site.Params.email }}" aria-label="Email Cedric">{{ readFile "assets/icons/envelope.svg" | replaceRE "<svg " "<svg aria-hidden=\"true\" focusable=\"false\" " | safeHTML }}</a>
+</div>

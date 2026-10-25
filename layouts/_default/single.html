@@ -1,0 +1,10 @@
+{{ define "main" }}
+<article>
+  <header class="article-header">
+    <h1>{{ .Title }}</h1>
+    <p class="muted"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>{{ if .Draft }} · <span class="draft">Draft</span>{{ end }}</p>
+  </header>
+  <div class="prose">{{ .Content }}</div>
+  <p class="back-link"><a href="{{ "blog/" | relURL }}">← All posts</a></p>
+</article>
+{{ end }}

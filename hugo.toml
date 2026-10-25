@@ -1,0 +1,21 @@
+baseURL = 'https://csirianni.github.io/'
+languageCode = 'en-us'
+title = 'Cedric Sirianni'
+disableKinds = ['taxonomy', 'term']
+enableRobotsTXT = true
+
+[params]
+  description = 'Blog'
+  github = 'https://github.com/csirianni'
+  linkedin = 'https://www.linkedin.com/in/cedric-sirianni/'
+  email = 'cedric@sirianni.dev'
+
+[permalinks]
+  blog = '/blog/:slug/'
+
+[markup.highlight]
+  style = 'github'
+
+[outputs]
+  home = ['HTML']
+  section = ['HTML']
