@@ -69,6 +69,11 @@ code, pre { font-family: 'Source Code Pro', monospace; font-size: .85em; font-va
 :not(pre) > code { background: #f3f4f6; padding: .12em .3em; border-radius: 3px; }
 pre { padding: 18px 20px; overflow-x: auto; line-height: 1.6; border: 1px solid #e7e9ed; border-radius: 3px; }
 pre code { font-size: inherit; }
+/* Keep iOS text autosizing consistent across highlighted code tokens. */
+pre, pre * {
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
 .highlight { margin: 1.5em 0; }
 blockquote { margin: 1.5em 0; padding-left: 20px; border-left: 3px solid #d4d9e1; color: #626974; }
 .prose li { margin-bottom: .4em; }
