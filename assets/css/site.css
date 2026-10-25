@@ -96,3 +96,27 @@ th, td { padding: 8px 14px; border: 1px solid #e7e9ed; text-align: left; }
   nav { gap: 18px; }
   .social-links { gap: 12px; }
 }
+
+/* GitHub Dark tokens for code blocks with orange comments. */
+.orange-comments .chroma { color: #e6edf3; background-color: #0d1117; }
+.orange-comments .line { display: flex; }
+.orange-comments :is(.k, .kd, .kn, .kr, .kt, .nn) { color: #ff7b72; }
+.orange-comments :is(.kc, .kp, .py, .nv, .vc, .vg, .vi, .vm, .ld, .sa, .dl, .se, .sh, .sr) { color: #79c0ff; }
+.orange-comments :is(.nc, .ne) { color: #f0883e; font-weight: bold; }
+.orange-comments :is(.no, .nl, .gh) { color: #79c0ff; font-weight: bold; }
+.orange-comments :is(.nd, .nf, .fm) { color: #d2a8ff; font-weight: bold; }
+.orange-comments .ni { color: #ffa657; }
+.orange-comments .nt { color: #7ee787; }
+.orange-comments :is(.l, .s, .sb, .sc, .sd, .s2, .si, .sx, .s1, .ss, .m, .mb, .mf, .mh, .mi, .il, .mo) { color: #a5d6ff; }
+.orange-comments :is(.o, .ow) { color: #ff7b72; font-weight: bold; }
+.orange-comments :is(.c, .ch, .cm, .c1, .cs, .cp, .cpf) { color: #ff9500; font-style: italic; }
+.orange-comments :is(.cs, .cp, .cpf, .gs) { font-weight: bold; }
+.orange-comments .err { color: #f85149; }
+.orange-comments .gd { color: #ffa198; background-color: #490202; }
+.orange-comments .gi { color: #56d364; background-color: #0f5323; }
+.orange-comments .ge { font-style: italic; }
+.orange-comments :is(.gr, .gt) { color: #ffa198; }
+.orange-comments :is(.go, .gp) { color: #8b949e; }
+.orange-comments .gu { color: #79c0ff; }
+.orange-comments .gl { text-decoration: underline; }
+.orange-comments .w { color: #6e7681; }

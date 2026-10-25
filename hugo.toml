@@ -14,7 +14,7 @@ enableRobotsTXT = true
   blog = '/blog/:slug/'
 
 [markup.highlight]
-  style = 'github'
+  style = 'github-dark'
 
 [outputs]
   home = ['HTML']
