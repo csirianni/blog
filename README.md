@@ -56,18 +56,6 @@ The folder name becomes the URL slug; an explicit `slug` metadata field can over
 false` to publish. Future-dated posts are excluded until a build runs after their publication date;
 there is no scheduled build.
 
-### Move to a custom domain
-
-1. Set `baseURL` in `hugo.toml` to your full HTTPS domain, including the trailing slash.
-2. Configure that domain under **Settings → Pages → Custom domain**.
-3. Add the DNS records specified by [GitHub’s custom domain
-   documentation](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site)
-and enable HTTPS once available.
-4. Push the configuration change to rebuild canonical URLs, the sitemap, and the feed.
-
-For this Actions-based deployment, the custom domain is managed in repository settings; a `CNAME`
-file is not required.
-
 ## Bundled assets and licenses
 
 - **Source Sans 3** (upright and italic variable WOFF2) and **Source Code Pro** (upright variable
