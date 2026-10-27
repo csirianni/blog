@@ -23,6 +23,7 @@
 
 html {
   color-scheme: light;
+  scrollbar-gutter: stable;
   --background: #fff;
   --text: #30343b;
   --heading: #20242b;
