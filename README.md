@@ -62,6 +62,5 @@ there is no scheduled build.
 WOFF2) come from Adobe’s [source-sans](https://github.com/adobe-fonts/source-sans) and
 [source-code-pro](https://github.com/adobe-fonts/source-code-pro) repositories, under `WOFF2/VF` on
 the `release` branch. SIL Open Font License notices are retained in `static/fonts/`.
-- **GitHub, LinkedIn, and envelope icons** come from [Bootstrap Icons
-1.11.3](https://github.com/twbs/icons/tree/v1.11.3), under the MIT license retained at
-`assets/icons/LICENSE`.
+- Icons come from [Bootstrap Icons 1.11.3](https://github.com/twbs/icons/tree/v1.11.3), under the
+MIT license retained at `assets/icons/LICENSE`.

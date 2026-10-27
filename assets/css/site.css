@@ -21,38 +21,71 @@
 }
 * { box-sizing: border-box; }
 
-html { color-scheme: light; }
+html {
+  color-scheme: light;
+  --background: #fff;
+  --text: #30343b;
+  --heading: #20242b;
+  --muted: #626974;
+  --link: #003fff;
+  --link-hover: #0030bf;
+  --border: #e7e9ed;
+  --quote-border: #d4d9e1;
+  --code-background: #f3f4f6;
+  --draft: #79551c;
+  background: var(--background);
+}
+
+html[data-theme='dark'] {
+  color-scheme: dark;
+  --background: #15181e;
+  --text: #d5dae2;
+  --heading: #eef1f6;
+  --muted: #a2abb9;
+  --link: #8aafff;
+  --link-hover: #b4ccff;
+  --border: #303641;
+  --quote-border: #4b5565;
+  --code-background: #252b35;
+  --draft: #e2b96f;
+}
 
 body {
   max-width: 740px;
   margin: 0 auto;
   padding: 0 28px;
-  background: #fff;
-  color: #30343b;
+  background: var(--background);
+  color: var(--text);
   font-family: 'Source Sans 3', sans-serif;
   font-size: 18px;
   line-height: 1.65;
   overflow-wrap: break-word;
 }
 
-a { color: #003fff; text-decoration: none; }
-a:hover { color: #0030bf; }
-a:focus-visible { outline: 2px solid #003fff; outline-offset: 5px; border-radius: 1px; }
-.site-header { padding: 44px 0 26px; border-bottom: 1px solid #e7e9ed; }
+a { color: var(--link); text-decoration: none; }
+a:hover { color: var(--link-hover); }
+a:focus-visible, .theme-toggle:focus-visible { outline: 2px solid var(--link); outline-offset: 5px; border-radius: 1px; }
+.site-header { padding: 44px 0 26px; border-bottom: 1px solid var(--border); }
 
 nav, .social-links { display: flex; align-items: center; gap: 22px; }
 nav { justify-content: flex-end; }
-nav a { color: #626974; }
-nav a[aria-current='page'] { color: #30343b; font-weight: 600; }
+nav a { color: var(--muted); }
+nav a[aria-current='page'] { color: var(--text); font-weight: 600; }
+.theme-toggle { border: 0; padding: 4px; background: transparent; color: var(--muted); font: inherit; cursor: pointer; line-height: 0; }
+.theme-toggle:hover { color: var(--link); }
+.theme-toggle svg { width: 20px; height: 20px; }
+.theme-toggle .bi-sun { display: none; }
+html[data-theme='dark'] .theme-toggle .bi-moon { display: none; }
+html[data-theme='dark'] .theme-toggle .bi-sun { display: inline; }
 .social-links { justify-content: center; gap: 18px; }
 .site-footer { margin: 64px 0 36px; }
-.social-links a { display: flex; align-items: center; padding: 4px; color: #626974; }
-.social-links a:hover { color: #003fff; }
+.social-links a { display: flex; align-items: center; padding: 4px; color: var(--muted); }
+.social-links a:hover { color: var(--link); }
 .social-links svg { width: 20px; height: 20px; }
 
 main { padding-top: 42px; min-height: 45vh; }
 
-h1, h2, h3, h4 { color: #20242b; line-height: 1.25; font-weight: 600; }
+h1, h2, h3, h4 { color: var(--heading); line-height: 1.25; font-weight: 600; }
 h1 { font-size: 32px; margin: 0 0 26px; }
 h2 { font-size: 25px; margin-top: 1.8em; }
 h3 { font-size: 21px; margin-top: 1.6em; }
@@ -63,11 +96,11 @@ p { margin: 0 0 1.3em; }
 .prose > :last-child { margin-bottom: 0; }
 .prose img { display: block; max-width: 100%; height: auto; }
 .prose figure { margin: 2em 0; }
-figcaption { color: #626974; font-size: 16px; text-align: center; margin-top: 10px; }
+figcaption { color: var(--muted); font-size: 16px; text-align: center; margin-top: 10px; }
 figcaption p { margin: 0; }
 code, pre { font-family: 'Source Code Pro', monospace; font-size: .85em; font-variant-ligatures: none; }
-:not(pre) > code { background: #f3f4f6; padding: .12em .3em; border-radius: 3px; }
-pre { padding: 18px 20px; overflow-x: auto; line-height: 1.6; border: 1px solid #e7e9ed; border-radius: 3px; }
+:not(pre) > code { background: var(--code-background); padding: .12em .3em; border-radius: 3px; }
+pre { padding: 18px 20px; overflow-x: auto; line-height: 1.6; border: 1px solid var(--border); border-radius: 3px; }
 pre code { font-size: inherit; }
 /* Keep iOS text autosizing consistent across highlighted code tokens. */
 pre, pre * {
@@ -75,20 +108,20 @@ pre, pre * {
   text-size-adjust: none;
 }
 .highlight { margin: 1.5em 0; }
-blockquote { margin: 1.5em 0; padding-left: 20px; border-left: 3px solid #d4d9e1; color: #626974; }
+blockquote { margin: 1.5em 0; padding-left: 20px; border-left: 3px solid var(--quote-border); color: var(--muted); }
 .prose li { margin-bottom: .4em; }
 .prose table { display: block; max-width: 100%; overflow-x: auto; border-collapse: collapse; }
-th, td { padding: 8px 14px; border: 1px solid #e7e9ed; text-align: left; }
-.muted, .post-list time { color: #626974; }
+th, td { padding: 8px 14px; border: 1px solid var(--border); text-align: left; }
+.muted, .post-list time { color: var(--muted); }
 .post-list { list-style: none; padding: 0; margin: 0; }
-.post-list li { display: flex; justify-content: space-between; gap: 24px; padding: 13px 0; border-bottom: 1px solid #e7e9ed; }
+.post-list li { display: flex; justify-content: space-between; gap: 24px; padding: 13px 0; border-bottom: 1px solid var(--border); }
 .post-list time { white-space: nowrap; font-size: 16px; padding-top: 2px; }
-.draft { font-size: 14px; color: #79551c; }
+.draft { font-size: 14px; color: var(--draft); }
 .article-header { margin-bottom: 36px; }
 .article-header h1 { margin-bottom: 12px; }
 .article-header p { font-size: 16px; margin: 0; }
 .back-link { margin-top: 48px; font-size: 16px; }
-.skip-link { position: absolute; top: -100px; background: white; padding: 8px 12px; }
+.skip-link { position: absolute; top: -100px; background: var(--background); padding: 8px 12px; }
 .skip-link:focus { top: 8px; }
 
 @media (max-width: 520px) {
@@ -102,26 +135,49 @@ th, td { padding: 8px 14px; border: 1px solid #e7e9ed; text-align: left; }
   .social-links { gap: 12px; }
 }
 
-/* GitHub Dark tokens for code blocks with orange comments. */
-.orange-comments .chroma { color: #e6edf3; background-color: #0d1117; }
-.orange-comments .line { display: flex; }
-.orange-comments :is(.k, .kd, .kn, .kr, .kt, .nn) { color: #ff7b72; }
-.orange-comments :is(.kc, .kp, .py, .nv, .vc, .vg, .vi, .vm, .ld, .sa, .dl, .se, .sh, .sr) { color: #79c0ff; }
-.orange-comments :is(.nc, .ne) { color: #f0883e; font-weight: bold; }
-.orange-comments :is(.no, .nl, .gh) { color: #79c0ff; font-weight: bold; }
-.orange-comments :is(.nd, .nf, .fm) { color: #d2a8ff; font-weight: bold; }
-.orange-comments .ni { color: #ffa657; }
-.orange-comments .nt { color: #7ee787; }
-.orange-comments :is(.l, .s, .sb, .sc, .sd, .s2, .si, .sx, .s1, .ss, .m, .mb, .mf, .mh, .mi, .il, .mo) { color: #a5d6ff; }
-.orange-comments :is(.o, .ow) { color: #ff7b72; font-weight: bold; }
-.orange-comments :is(.c, .ch, .cm, .c1, .cs, .cp, .cpf) { color: #ff9500; font-style: italic; }
-.orange-comments :is(.cs, .cp, .cpf, .gs) { font-weight: bold; }
-.orange-comments .err { color: #f85149; }
-.orange-comments .gd { color: #ffa198; background-color: #490202; }
-.orange-comments .gi { color: #56d364; background-color: #0f5323; }
-.orange-comments .ge { font-style: italic; }
-.orange-comments :is(.gr, .gt) { color: #ffa198; }
-.orange-comments :is(.go, .gp) { color: #8b949e; }
-.orange-comments .gu { color: #79c0ff; }
-.orange-comments .gl { text-decoration: underline; }
-.orange-comments .w { color: #6e7681; }
+/* GitHub Light syntax colors, with GitHub Dark overrides below. */
+.chroma { color: #1f2328; background-color: #f7f7f7; }
+.chroma .line { display: flex; }
+.chroma :is(.k, .kc, .kd, .kn, .kp, .kr, .kt) { color: #cf222e; }
+.chroma :is(.no, .nd, .nt, .m, .mb, .mf, .mh, .mi, .il, .mo, .o, .ow) { color: #0550ae; }
+.chroma :is(.ni, .nb, .nf, .fm) { color: #6639ba; }
+.chroma .nn { color: #24292e; }
+.chroma .bp { color: #6a737d; }
+.chroma :is(.nv, .vc, .vg, .vi, .vm) { color: #953800; }
+.chroma .nl { color: #900; font-weight: bold; }
+.chroma :is(.s, .sa, .sb, .sc, .dl, .sd, .s2, .se, .sh, .si, .sx, .sr, .s1) { color: #0a3069; }
+.chroma .ss { color: #032f62; }
+.chroma :is(.c, .ch, .cm, .c1, .cs, .cp, .cpf) { color: #57606a; }
+.chroma .err { color: #f6f8fa; background-color: #82071e; }
+.chroma .gd { color: #82071e; background-color: #ffebe9; }
+.chroma .gi { color: #116329; background-color: #dafbe1; }
+.chroma .ge { font-style: italic; }
+.chroma .gs { font-weight: bold; }
+.chroma .gl { text-decoration: underline; }
+.chroma .w { color: inherit; }
+
+html[data-theme='dark'] .chroma { color: #e6edf3; background-color: #0d1117; }
+html[data-theme='dark'] .chroma :is(.k, .kd, .kn, .kr, .kt, .nn) { color: #ff7b72; }
+html[data-theme='dark'] .chroma :is(.kc, .kp, .py, .nv, .vc, .vg, .vi, .vm, .ld, .sa, .dl, .se, .sh, .sr) { color: #79c0ff; }
+html[data-theme='dark'] .chroma :is(.nc, .ne) { color: #f0883e; font-weight: bold; }
+html[data-theme='dark'] .chroma :is(.no, .nl, .gh) { color: #79c0ff; font-weight: bold; }
+html[data-theme='dark'] .chroma :is(.nd, .nf, .fm) { color: #d2a8ff; font-weight: bold; }
+html[data-theme='dark'] .chroma .ni { color: #ffa657; }
+html[data-theme='dark'] .chroma .nt { color: #7ee787; }
+html[data-theme='dark'] .chroma :is(.nb, .bp) { color: inherit; }
+html[data-theme='dark'] .chroma :is(.l, .s, .sb, .sc, .sd, .s2, .si, .sx, .s1, .ss, .m, .mb, .mf, .mh, .mi, .il, .mo) { color: #a5d6ff; }
+html[data-theme='dark'] .chroma :is(.o, .ow) { color: #ff7b72; font-weight: bold; }
+html[data-theme='dark'] .chroma :is(.c, .ch, .cm, .c1, .cs, .cp, .cpf) { color: #8b949e; font-style: italic; }
+html[data-theme='dark'] .chroma :is(.cs, .cp, .cpf) { font-weight: bold; }
+html[data-theme='dark'] .chroma .err { color: #f85149; background-color: transparent; }
+html[data-theme='dark'] .chroma .gd { color: #ffa198; background-color: #490202; }
+html[data-theme='dark'] .chroma .gi { color: #56d364; background-color: #0f5323; }
+html[data-theme='dark'] .chroma .gr { color: #ffa198; }
+html[data-theme='dark'] .chroma .gt { color: #ff7b72; }
+html[data-theme='dark'] .chroma :is(.go, .gp) { color: #8b949e; }
+html[data-theme='dark'] .chroma .gu { color: #79c0ff; }
+html[data-theme='dark'] .chroma .w { color: #6e7681; }
+
+/* Keep the article's orange-comment examples legible on both backgrounds. */
+.orange-comments .chroma :is(.c, .ch, .cm, .c1, .cs, .cp, .cpf) { color: #a64b00; font-style: italic; }
+html[data-theme='dark'] .orange-comments .chroma :is(.c, .ch, .cm, .c1, .cs, .cp, .cpf) { color: #ff9500; }
