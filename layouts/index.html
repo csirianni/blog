@@ -1,7 +1,7 @@
 {{ define "main" }}
 <article class="about">
   {{ $photo := resources.Get "images/headshot.jpeg" }}
-  {{ $photo = $photo.Resize "480x" }}
+  {{ $photo = $photo.Fill "480x480 Center" }}
   <img class="headshot" src="{{ $photo.RelPermalink }}" width="{{ $photo.Width }}" height="{{ $photo.Height }}" alt="Cedric Sirianni">
   <div class="prose">{{ .Content }}</div>
 </article>
