@@ -15,7 +15,7 @@ draft: false
 
 The syntax highlighting for comments in most editors looks something like this:
 
-```rust 
+```rust {noClasses=false, class="muted-comments"}
 let now = time::Instant::now();
 let read = &mut self.read;
 
