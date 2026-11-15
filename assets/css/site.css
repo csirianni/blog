@@ -71,7 +71,7 @@ a:focus-visible { outline: 2px solid var(--link); outline-offset: 5px; border-ra
 .site-header { padding: 44px 0 22px; border-bottom: 1px solid var(--border); }
 
 nav, .social-links { display: flex; align-items: center; gap: 22px; }
-nav { justify-content: flex-start; font-size: 17px; }
+nav { justify-content: flex-start; font-size: 20px; }
 nav a { color: var(--muted); }
 nav a[aria-current='page'] { color: var(--text); font-weight: 600; }
 .social-links { justify-content: center; gap: 18px; }
