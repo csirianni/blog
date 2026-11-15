@@ -25,8 +25,8 @@ html {
   color-scheme: light;
   scrollbar-gutter: stable;
   --background: #fff;
-  --text: #30343b;
-  --heading: #20242b;
+  --text: #292d33;
+  --heading: #1e2228;
   --icon: #000;
   --muted: #626974;
   --link: #003fff;
@@ -36,21 +36,6 @@ html {
   --code-background: #f3f4f6;
   --draft: #79551c;
   background: var(--background);
-}
-
-html[data-theme='dark'] {
-  color-scheme: dark;
-  --background: #15181e;
-  --text: #d5dae2;
-  --heading: #eef1f6;
-  --icon: #eef1f6;
-  --muted: #a2abb9;
-  --link: #8aafff;
-  --link-hover: #b4ccff;
-  --border: #303641;
-  --quote-border: #4b5565;
-  --code-background: #252b35;
-  --draft: #e2b96f;
 }
 
 body {
@@ -75,12 +60,6 @@ nav, .social-links { display: flex; align-items: center; gap: 22px; }
 nav { justify-content: flex-start; }
 nav a { color: var(--muted); }
 nav a[aria-current='page'] { color: var(--text); font-weight: 600; }
-.theme-toggle { margin-left: auto; border: 0; padding: 4px; background: transparent; color: var(--icon); font: inherit; cursor: pointer; line-height: 0; }
-.theme-toggle:hover { color: var(--link); }
-.theme-toggle svg { width: 20px; height: 20px; }
-.theme-toggle .bi-sun { display: none; }
-html[data-theme='dark'] .theme-toggle .bi-moon { display: none; }
-html[data-theme='dark'] .theme-toggle .bi-sun { display: inline; }
 .social-links { justify-content: center; gap: 18px; }
 .site-footer { margin: 64px 0 36px; }
 .social-links a { display: flex; align-items: center; padding: 4px; color: var(--icon); }
@@ -130,30 +109,37 @@ blockquote { margin: 1.5em 0; padding-left: 20px; border-left: 3px solid var(--q
 .prose .footnote-backref { margin-left: .3em; text-decoration: none; white-space: nowrap; }
 .prose table { display: block; max-width: 100%; overflow-x: auto; border-collapse: collapse; }
 th, td { padding: 8px 14px; border: 1px solid var(--border); text-align: left; }
-.muted, .post-list time { color: var(--muted); }
+.muted, .article-meta, .post-meta { color: var(--muted); }
 .post-list { list-style: none; padding: 0; margin: 0; }
-.post-list li { display: flex; justify-content: space-between; gap: 24px; padding: 13px 0; border-bottom: 1px solid var(--border); }
-.post-list time { white-space: nowrap; font-size: 16px; padding-top: 2px; }
-.draft { font-size: 14px; color: var(--draft); }
-.article-header { margin-bottom: 36px; }
-.article-header h1 { margin-bottom: 0; }
-.article-header p { font-size: 16px; margin: 0 0 12px; }
-.back-link { margin-top: 48px; font-size: 16px; }
+.post-list li { padding: 24px 0; border-bottom: 1px solid var(--border); }
+.post-list li:first-child { padding-top: 0; }
+.post-title { font-size: 23px; font-weight: 500; line-height: 1.3; }
+.post-meta { font-size: 16px; margin: 8px 0 0; }
+.draft { color: var(--draft); }
+.article-header { margin-bottom: 52px; }
+.article-header h1 { margin-bottom: 20px; }
+.article-summary { color: var(--muted); font-size: 21px; line-height: 1.5; margin: 0 0 20px; }
+.article-meta { font-size: 16px; margin: 0; }
+.back-link { margin-top: 64px; font-size: 16px; }
 .skip-link { position: absolute; top: -100px; background: var(--background); padding: 8px 12px; }
 .skip-link:focus { top: 8px; }
 
 @media (max-width: 520px) {
   body { padding: 0 22px; }
   .site-header { padding-top: 24px; }
-  main { padding-top: 26px; }
-  h1 { font-size: 29px; }
+  main { padding-top: 36px; }
+  h1 { font-size: 31px; }
+  h2 { font-size: 21px; }
+  h3 { font-size: 19px; }
+  .article-header { margin-bottom: 40px; }
+  .article-summary { font-size: 20px; }
+  .post-title { font-size: 21px; }
   .headshot { float: none; margin: 0 auto 24px; }
-  .post-list li { flex-direction: column; gap: 2px; }
   nav { gap: 18px; }
   .social-links { gap: 12px; }
 }
 
-/* GitHub Light syntax colors, with GitHub Dark overrides below. */
+/* GitHub Light syntax colors. */
 .chroma { color: #1f2328; background-color: #f7f7f7; }
 .chroma .line { display: flex; }
 .chroma :is(.k, .kc, .kd, .kn, .kp, .kr, .kt) { color: #cf222e; }
@@ -174,28 +160,5 @@ th, td { padding: 8px 14px; border: 1px solid var(--border); text-align: left; }
 .chroma .gl { text-decoration: underline; }
 .chroma .w { color: inherit; }
 
-html[data-theme='dark'] .chroma { color: #e6edf3; background-color: #0d1117; }
-html[data-theme='dark'] .chroma :is(.k, .kd, .kn, .kr, .kt, .nn) { color: #ff7b72; }
-html[data-theme='dark'] .chroma :is(.kc, .kp, .py, .nv, .vc, .vg, .vi, .vm, .ld, .sa, .dl, .se, .sh, .sr) { color: #79c0ff; }
-html[data-theme='dark'] .chroma :is(.nc, .ne) { color: #f0883e; font-weight: bold; }
-html[data-theme='dark'] .chroma :is(.no, .nl, .gh) { color: #79c0ff; font-weight: bold; }
-html[data-theme='dark'] .chroma :is(.nd, .nf, .fm) { color: #d2a8ff; font-weight: bold; }
-html[data-theme='dark'] .chroma .ni { color: #ffa657; }
-html[data-theme='dark'] .chroma .nt { color: #7ee787; }
-html[data-theme='dark'] .chroma :is(.nb, .bp) { color: inherit; }
-html[data-theme='dark'] .chroma :is(.l, .s, .sb, .sc, .sd, .s2, .si, .sx, .s1, .ss, .m, .mb, .mf, .mh, .mi, .il, .mo) { color: #a5d6ff; }
-html[data-theme='dark'] .chroma :is(.o, .ow) { color: #ff7b72; font-weight: bold; }
-html[data-theme='dark'] .chroma :is(.c, .ch, .cm, .c1, .cs, .cp, .cpf) { color: #8b949e; font-style: italic; }
-html[data-theme='dark'] .chroma :is(.cs, .cp, .cpf) { font-weight: bold; }
-html[data-theme='dark'] .chroma .err { color: #f85149; background-color: transparent; }
-html[data-theme='dark'] .chroma .gd { color: #ffa198; background-color: #490202; }
-html[data-theme='dark'] .chroma .gi { color: #56d364; background-color: #0f5323; }
-html[data-theme='dark'] .chroma .gr { color: #ffa198; }
-html[data-theme='dark'] .chroma .gt { color: #ff7b72; }
-html[data-theme='dark'] .chroma :is(.go, .gp) { color: #8b949e; }
-html[data-theme='dark'] .chroma .gu { color: #79c0ff; }
-html[data-theme='dark'] .chroma .w { color: #6e7681; }
-
-/* Keep the article's orange-comment examples legible on both backgrounds. */
+/* Keep the article's orange-comment examples legible on the light background. */
 .orange-comments .chroma :is(.c, .ch, .cm, .c1, .cs, .cp, .cpf) { color: #a64b00; font-style: italic; }
-html[data-theme='dark'] .orange-comments .chroma :is(.c, .ch, .cm, .c1, .cs, .cp, .cpf) { color: #ff9500; }
