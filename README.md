@@ -35,7 +35,7 @@ Edit `content/blog/my-post/index.md`:
 ---
 title: 'My post'
 date: 2026-10-24
-description: 'A short summary for metadata and feed readers.'
+description: 'An optional summary displayed beneath the article title and used in metadata and feeds.'
 draft: true
 ---
 ```
@@ -62,5 +62,8 @@ there is no scheduled build.
 WOFF2) come from Adobe’s [source-sans](https://github.com/adobe-fonts/source-sans) and
 [source-code-pro](https://github.com/adobe-fonts/source-code-pro) repositories, under `WOFF2/VF` on
 the `release` branch. SIL Open Font License notices are retained in `static/fonts/`.
+- **Source Serif 4** (upright and italic variable WOFF2) comes from Adobe’s
+  [source-serif](https://github.com/adobe-fonts/source-serif) repository, under `WOFF2/VAR` on the
+  `release` branch. Its SIL Open Font License notice is retained in `static/fonts/source-serif-LICENSE.md`.
 - Icons come from [Bootstrap Icons 1.11.3](https://github.com/twbs/icons/tree/v1.11.3), under the
 MIT license retained at `assets/icons/LICENSE`.
